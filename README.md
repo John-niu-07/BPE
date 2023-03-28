@@ -38,11 +38,11 @@ where the parameters are the following:
 - `<attackMode>`: `all2one` (single-target attack) or `all2all` (multi-target attack)`
 
 
-## Aft_defense
-Along with training and evaluation code, we also provide two methods of defense. One is when there is clean data, and the other is without clean data
+## PBE_defense
+Along with training and evaluation code, we also provide two methods of defense. One is when there is clean data (i.e., AFT defense which is a simplified PBE defense), and the other is without clean data (i.e., PBE defense)
 ```bash
 $ python aft_main.py --dataset <datasetName> --attack_mode <attackMode> --trigger_type <triggertype> --model_path <modelpath> (with clean data)
-$ python progressive_aft_main.py --dataset <datasetName> --attack_mode <attackMode> --trigger_type <triggertype> --model_path <modelpath> (without clean data)
+$ python pbe_main.py --dataset <datasetName> --attack_mode <attackMode> --trigger_type <triggertype> --model_path <modelpath> (without clean data)
 ```
 where the parameters are the following:
 - `<datasetName>`: `mnist` | `cifar10` | `gtsrb` | `celeba`.
