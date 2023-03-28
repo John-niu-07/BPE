@@ -28,7 +28,9 @@ $ python -m pip install -r requirements.py
 $ bash gtsrb_download.sh
 ```
 
-## Training
+## Run Backdoor Attack
+Poison a small part of training data and train a model, resulting in an infected model.
+
 Run command 
 ```bash
 $ python train_blend.py --dataset <datasetName> --attack_mode <attackMode>
@@ -38,8 +40,15 @@ where the parameters are the following:
 - `<attackMode>`: `all2one` (single-target attack) or `all2all` (multi-target attack)`
 
 
-## PBE_defense
-Along with training and evaluation code, we also provide two methods of defense. One is when there is clean data (i.e., AFT defense which is a simplified PBE defense), and the other is without clean data (i.e., PBE defense)
+## Run Backdoor Defense, i.e., erasing the backdoor and producing a purified model.
+In this paper, we discuss two defensive settings. The first one follows the setting of the \emph{model repair} defense methods, where we just have an infected model and a clean extra dataset but cannot access the training data.
+
+The second one follows the setting of the \emph{data filtering} defense methods, where we can access the training data and do not have a clean extra dataset. Note that we do not know which training images are poisoned. 
+
+For the second defensive setting, we propose a \textbf{Progressive Backdoor Erasing (PBE)} method, as shown in Algorithm 1. 
+
+Regarding the first defensive setting, we drop the \textbf{Initialization} step and use the known \emph{clean} extra dataset $D^{\mathrm{clean}}_{\mathrm{ext}}$. And then, we simply skip the step-3 and only need to run the iteration once, \emph{i.e.}, just run step-1 and step-2 once, which is called \textbf{Adversarial Fine-Tuning (AFT)} in this paper.
+
 ```bash
 $ python aft_main.py --dataset <datasetName> --attack_mode <attackMode> --trigger_type <triggertype> --model_path <modelpath> (with clean data)
 $ python pbe_main.py --dataset <datasetName> --attack_mode <attackMode> --trigger_type <triggertype> --model_path <modelpath> (without clean data)
