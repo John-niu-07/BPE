@@ -9,7 +9,9 @@
 
 
 This paper finds an intriguing connection between backdoor attacks and adversarial attacks: for a model planted with backdoors,
-its adversarial examples have similar behaviors as its triggered images. Based on these observations, a novel progressive Backdoor Erasing (PBE) algorithm is proposed to
+its adversarial examples have similar behaviors as its triggered images. 
+backdoor_feat_ill.png
+Based on these observations, a novel progressive Backdoor Erasing (PBE) algorithm is proposed to
 progressively purify the infected model by leveraging untargeted adversarial attacks.
 
 This is an implementation of the CVPR 2023 Paper **[Progressive Backdoor Erasing via connecting Backdoor and Adversarial Attacks](https://arxiv.org/abs/2202.06312)** in Pytorch. This repository includes:
