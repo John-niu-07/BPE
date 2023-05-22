@@ -11,7 +11,7 @@
 This paper finds an intriguing connection between backdoor attacks and adversarial attacks: for a model planted with backdoors,
 its adversarial examples have similar behaviors as its triggered images. 
 ![Image](backdoor_feat_ill.png)
-![contents](./poster - niu.pdf)
+![Image](./poster - niu.png)
 
 Based on these observations, a novel **Progressive Backdoor Erasing (PBE)** algorithm is proposed to
 progressively purify the infected model by leveraging untargeted adversarial attacks.
